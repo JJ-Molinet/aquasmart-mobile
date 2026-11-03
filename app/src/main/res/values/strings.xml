@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AquaSmart Mobile</string>
+    <string name="login_user">Usuario</string>
+    <string name="login_pass">Contraseña</string>
+    <string name="login_btn">Ingresar</string>
+    <string name="login_register">Crear cuenta</string>
+    <string name="menu_device">Modo Dispositivo IoT\n(simula sensores + bomba)</string>
+    <string name="menu_monitor">Modo Monitor\n(muestra y controla lecturas)</string>
+    <string name="menu_logout">Cerrar sesión</string>
+    <string name="device_start">Activar servidor Bluetooth</string>
+    <string name="monitor_scan">Dispositivos emparejados</string>
+    <string name="monitor_water">Regar ahora</string>
+    <string name="monitor_stop">Apagar bomba</string>
+    <string name="monitor_history">Historial (SQLite)</string>
+</resources>

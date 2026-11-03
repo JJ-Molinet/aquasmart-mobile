@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvMonitorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monitor AquaSmart"
+        android:textColor="@color/aquaDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/monitor_scan"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listDevices"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvLectura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#E3F2FD"
+        android:padding="8dp"
+        android:textSize="15sp"
+        android:typeface="monospace" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWater"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/monitor_water" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/monitor_stop" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Umbral suelo (%):" />
+
+        <TextView
+            android:id="@+id/tvUmbral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUmbralDown"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="−" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUmbralUp"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="+" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHistorial"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/monitor_history" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvMonitorLog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:background="#F1F5F9"
+        android:padding="8dp"
+        android:textSize="12sp"
+        android:typeface="monospace"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

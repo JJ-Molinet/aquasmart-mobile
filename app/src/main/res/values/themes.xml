@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AquaSmart" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/aquaPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/aquaAccent</item>
+        <item name="android:statusBarColor">@color/aquaDark</item>
+    </style>
+</resources>

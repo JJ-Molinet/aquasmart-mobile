@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aquaPrimary">#0277BD</color>
+    <color name="aquaDark">#004C8C</color>
+    <color name="aquaAccent">#4FC3F7</color>
+    <color name="white">#FFFFFF</color>
+    <color name="soil">#795548</color>
+    <color name="pumpOn">#D32F2F</color>
+    <color name="pumpOff">#43A047</color>
+</resources>
