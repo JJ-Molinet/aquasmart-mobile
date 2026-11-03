@@ -1,0 +1,60 @@
+TI3042 — EVALUACIÓN SUMATIVA UNIDAD 2 (25%)
+Aplicaciones Móviles para IoT · D-FB50-N4-P13-C1 · Sede Valdivia
+Docente: Cristian Mauricio Carrasco Venegas
+Estudiante: Juanjo (individual)
+
+LINK AL CÓDIGO (GitHub):
+https://github.com/JJ-Molinet/aquasmart-mobile
+
+PROYECTO: AquaSmart Mobile
+App Android nativa (Android Studio, Kotlin, Gradle AGP 8.5.2, minSdk 24)
+que desarrolla la problemática del sistema de riego IoT AquaSmart
+(validado con el docente en la Unidad 1).
+
+QUÉ IMPLEMENTA (según guía Sumativa Unidad 2):
+
+1) LOGIN + AUTENTICACIÓN (SQLite local)
+   - Pantalla de login con usuario/contraseña guardados en SQLite local.
+   - Contraseñas NUNCA en texto claro: hash PBKDF2-HMAC-SHA-256
+     (120.000 iteraciones, 256 bits) con sal aleatoria por usuario.
+   - Registro de cuenta nueva desde la misma pantalla.
+   - Archivos: LoginActivity.kt, Security.kt, DbHelper.kt.
+   - Usuario demo: juanjo / clave: aquasmart123
+
+2) CONEXIÓN INALÁMBRICA ENTRE AL MENOS 2 DISPOSITIVOS ANDROID
+   - La misma app funciona en dos roles (se instalan en 2 teléfonos):
+     · Modo Dispositivo IoT: teléfono A simula sensores (temperatura,
+       humedad aire, humedad suelo) y la bomba de riego; abre servidor
+       Bluetooth RFCOMM (SPP, socket cifrado y autenticado).
+     · Modo Monitor: teléfono B se conecta, recibe lecturas en vivo
+       (trama CSV cada 3 s), envía comandos PUMP_ON/PUMP_OFF/THR=n.
+   - Archivos: DeviceActivity.kt, MonitorActivity.kt, SensorSimulator.kt.
+
+3) ALMACENAMIENTO Y CONSULTA DE DATOS DE SENSORES (SQLite)
+   - Cada lectura recibida se persiste en la tabla "lecturas".
+   - Botón "Historial (SQLite)" muestra la consulta de las últimas
+     lecturas (fecha/hora, T, HA, HS, estado bomba, dispositivo).
+   - Archivo: DbHelper.kt.
+
+4) SEGURIDAD SEGÚN ISO/IEC 27400
+   - Cifrado de credenciales: PBKDF2 + sal aleatoria (Security.kt).
+   - Almacenamiento seguro: sesión en EncryptedSharedPreferences con
+     clave AES-256-GCM protegida en Android Keystore.
+   - Control de acceso: login obligatorio, bloqueo temporizado tras
+     3 intentos fallidos (anti fuerza bruta), sesión con expiración.
+   - Conexión segura: canal Bluetooth cifrado + autenticado; entrada
+     de comandos validada por formato.
+   - Mapa completo control → código: sección "Seguridad" del README.
+
+DEMO EN CLASE (06-11-2026):
+   Teléfono A: juanjo/aquasmart123 -> Modo Dispositivo IoT -> Activar
+   servidor Bluetooth. Teléfono B: Modo Monitor -> conectar a A.
+   Se muestran lecturas en vivo, riego automático por umbral, riego
+   manual, cambio de umbral y historial SQLite.
+
+CÓMO COMPILAR (PC con Android Studio, AGP 8.5.2 / Gradle 8.7 / JDK 17+):
+   abrir proyecto con Android Studio, o:
+   ./gradlew assembleDebug
+   APK demo: app/build/outputs/apk/debug/app-debug.apk
+
+Estructura completa y notas de seguridad en el README del repo.

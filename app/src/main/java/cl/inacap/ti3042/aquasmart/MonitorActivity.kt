@@ -151,7 +151,7 @@ class MonitorActivity : AppCompatActivity() {
     private suspend fun escucharLecturas(s: BluetoothSocket) {
         val reader = BufferedReader(InputStreamReader(s.inputStream))
         try {
-            while (coroutineContext.isActive && conectado) {
+            while (scope.isActive && conectado) {
                 val line = reader.readLine() ?: break
                 val l = parsearTrama(line) ?: continue
                 // almacenamiento de datos de sensores en SQLite
