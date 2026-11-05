@@ -44,8 +44,9 @@ void setup() {
   Serial.begin(9600);
   bt.begin(9600);              // ← si usas Serial1, borra esta línea
   pinMode(PIN_LED, OUTPUT);
-  pinMode(PIN_BOMBA, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT); // LED L integrado de la placa (D13)
   digitalWrite(PIN_LED, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
   digitalWrite(PIN_BOMBA, LOW);
 }
 
@@ -90,10 +91,12 @@ void procesarComando(String cmd) {
   if (cmd == "LED_ON") {
     ledOn = true;
     digitalWrite(PIN_LED, HIGH);
+    digitalWrite(LED_BUILTIN, HIGH);   // también el L de la placa (visual)
     CONNE.println("OK LED_ON");
   } else if (cmd == "LED_OFF") {
     ledOn = false;
     digitalWrite(PIN_LED, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
     CONNE.println("OK LED_OFF");
   } else if (cmd == "PUMP_ON") {
     prenderBomba();
