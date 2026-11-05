@@ -52,6 +52,10 @@ class MonitorActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnWater).setOnClickListener { enviarComando("PUMP_ON") }
         findViewById<Button>(R.id.btnStop).setOnClickListener { enviarComando("PUMP_OFF") }
 
+        // Control del LED del Arduino (demo del profe: conectar + prender LED)
+        findViewById<Button>(R.id.btnLedOn).setOnClickListener { enviarComando("LED_ON") }
+        findViewById<Button>(R.id.btnLedOff).setOnClickListener { enviarComando("LED_OFF") }
+
         findViewById<Button>(R.id.btnUmbralUp).setOnClickListener {
             umbralSelecc = (umbralSelecc + 5).coerceAtMost(90)
             actualizarUmbralUI()

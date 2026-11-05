@@ -7,6 +7,7 @@
     <string name="login_register">Crear cuenta</string>
     <string name="menu_device">Modo Dispositivo IoT\n(simula sensores + bomba)</string>
     <string name="menu_monitor">Modo Monitor\n(muestra y controla lecturas)</string>
+    <string name="menu_wifi_arduino">Monitor por WiFi\n(Arduino UNO R4 WiFi)</string>
     <string name="menu_logout">Cerrar sesión</string>
     <string name="device_start">Activar servidor Bluetooth</string>
     <string name="monitor_scan">Dispositivos emparejados</string>

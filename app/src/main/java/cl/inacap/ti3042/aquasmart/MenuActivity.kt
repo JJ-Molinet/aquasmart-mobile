@@ -29,6 +29,9 @@ class MenuActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnMonitor).setOnClickListener {
             startActivity(Intent(this, MonitorActivity::class.java))
         }
+        findViewById<Button>(R.id.btnWifiArduino).setOnClickListener {
+            startActivity(Intent(this, WifiArduinoActivity::class.java))
+        }
         findViewById<Button>(R.id.btnLogout).setOnClickListener {
             Security.clearSession(this)
             startActivity(Intent(this, LoginActivity::class.java))

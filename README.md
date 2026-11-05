@@ -61,6 +61,19 @@ app/src/main/java/cl/inacap/ti3042/aquasmart/
 └── DbHelper.kt        → SQLite: tabla users + lecturas (almacenamiento/consulta)
 ```
 
+## Demo con Arduino (según indicaciones del docente, audio 05-11)
+
+La app además **conecta con el Arduino real y controla su LED**:
+
+| Canal | Cómo | Comandos |
+|---|---|---|
+| Bluetooth (HC-05 / otro te leýfono como dispositivo) | Monitor → conectar → botones 💡/🌑 | `LED_ON`, `LED_OFF` (+ `PUMP_ON/OFF`, `THR=n`) |
+| WiFi (UNO R4 WiFi) | Menú → Monitor por WiFi → IP 192.168.4.1 | `GET /cmd?value=LED_ON/OFF`, `GET /status` (JSON) |
+
+Sketches listos para subir con el IDE de Arduino desde `arduino/`:
+- `AquaSketch_Arduino_LED.ino` — LED (D12/D13), higrómetro (A0), bomba (relé D8), trama de lecturas estándar de la app.
+- `AquaSketch_R4_WiFi.ino` — AP `AquaSmartAP` / `aquasmart123`, servidor HTTP con `/status` y `/cmd`.
+
 ## Build
 
 ```bash

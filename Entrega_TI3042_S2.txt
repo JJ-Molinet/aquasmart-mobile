@@ -52,6 +52,20 @@ DEMO EN CLASE (06-11-2026):
    Se muestran lecturas en vivo, riego automático por umbral, riego
    manual, cambio de umbral y historial SQLite.
 
+CONTROL DE LED DEL ARDUINO (agregado según indicaciones del docente):
+   - Canal Bluetooth (HC-05 / otro teléfono haciendo de dispositivo):
+     Modo Monitor -> conectar al dispositivo -> "Prender LED" / "Apagar
+     LED" (envía LED_ON / LED_OFF por el canal RFCOMM cifrado).
+   - Canal WiFi (Arduino UNO R4 WiFi, quien trae ESP32-S3):
+     Menú -> "Monitor por WiFi" -> IP 192.168.4.1 -> consultar estado,
+     LED_ON / LED_OFF vía HTTP.
+   - Los sketches de Arduino están en /arduino del repo:
+       · AquaSketch_Arduino_LED.ino   (UNO + HC-05: LED, higrómetro A0,
+         bomba por relé, comandos LED_ON/LED_OFF/PUMP_ON/PUMP_OFF/THR=n,
+         trama de lecturas T=;HA=;HS=;B=;U= cada 2 s)
+       · AquaSketch_R4_WiFi.ino       (UNO R4 WiFi: Access Point
+         AquaSmartAP/aquasmart123, GET /status y GET /cmd?value=...)
+
 CÓMO COMPILAR (PC con Android Studio, AGP 8.5.2 / Gradle 8.7 / JDK 17+):
    abrir proyecto con Android Studio, o:
    ./gradlew assembleDebug
