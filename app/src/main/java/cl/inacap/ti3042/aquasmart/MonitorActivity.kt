@@ -56,6 +56,10 @@ class MonitorActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnLedOn).setOnClickListener { enviarComando("LED_ON") }
         findViewById<Button>(R.id.btnLedOff).setOnClickListener { enviarComando("LED_OFF") }
 
+        // LED 2 (amarillo en D9) — segundo diodo del prototipo
+        findViewById<Button>(R.id.btnLed2On).setOnClickListener { enviarComando("LED2_ON") }
+        findViewById<Button>(R.id.btnLed2Off).setOnClickListener { enviarComando("LED2_OFF") }
+
         findViewById<Button>(R.id.btnUmbralUp).setOnClickListener {
             umbralSelecc = (umbralSelecc + 5).coerceAtMost(90)
             actualizarUmbralUI()
