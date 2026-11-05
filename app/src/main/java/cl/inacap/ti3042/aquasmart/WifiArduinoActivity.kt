@@ -34,6 +34,8 @@ class WifiArduinoActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnLedOnWiFi).setOnClickListener { comandar("LED_ON") }
         findViewById<Button>(R.id.btnLedOffWiFi).setOnClickListener { comandar("LED_OFF") }
+        findViewById<Button>(R.id.btnLed2OnWiFi).setOnClickListener { comandar("LED2_ON") }
+        findViewById<Button>(R.id.btnLed2OffWiFi).setOnClickListener { comandar("LED2_OFF") }
 
         log("💡 Conecta el teléfono al AP del Arduino (AquaSmartAP) y toca «Conectar».")
         log("(snip) Ruta del sketch: arduino/AquaSketch_R4_WiFi.ino en el repo.")
@@ -47,6 +49,7 @@ class WifiArduinoActivity : AppCompatActivity() {
                 val o = JSONObject(json)
                 val estado =
                     "💡 LED=${if (o.optBoolean("LED", false)) "ON" else "off"}   " +
+                        "💡💡 LED2=${if (o.optBoolean("LED2", false)) "ON" else "off"}   " +
                         "🚿 bomba=${if (o.optBoolean("bomba", false)) "ON" else "off"}\n" +
                         "🌡️ T=${o.optDouble("T", 0.0)}°C 🌱 HS=${o.optDouble("HS", 0.0)}% " +
                         "(sensor: ${o.optString("sensor", "—")})"
